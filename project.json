@@ -1,0 +1,45 @@
+{
+  "name": "PostmanSwaggerAPIAutomation",
+  "description": "Automates Postman login, token refresh, Swagger authorization, API calls, and data export",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.System.Activities": "[22.10.3]",
+    "UiPath.UIAutomation.Activities": "[22.10.3]",
+    "UiPath.WebAPI.Activities": "[1.13.1]",
+    "UiPath.Excel.Activities": "[2.16.1]",
+    "UiPath.DataTable.Activities": "[1.12.0]",
+    "System.Data.DataSetExtensions": "[4.5.0]",
+    "Newtonsoft.Json": "[13.0.3]"
+  },
+  "webApiDependencies": {},
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPaused": false,
+    "isTemplate": false,
+    "projectProfile": "Inherit",
+    "runtimeType": "Automatic",
+    "expressionLanguage": "VB"
+  },
+  "designOptions": {
+    "projectProfile": "Inherit",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    }
+  },
+  "expressionLanguage": "VB",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "4c196609-b3bb-4c58-9f2a-123456789abc",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {}
+}

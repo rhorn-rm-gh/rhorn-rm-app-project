@@ -1,0 +1,14 @@
+{
+  "PostmanCredentials": {
+    "Username": "your_postman_email@example.com",
+    "Password": "your_postman_password"
+  },
+  "SwaggerConfiguration": {
+    "SwaggerURL": "https://your-api-domain.com/swagger/index.html",
+    "APIEndpoint": "/api/v1/your-endpoint"
+  },
+  "LocalSettings": {
+    "DownloadPath": "C:\\Users\\your-username\\Downloads\\APIExports",
+    "TokenStoragePath": "C:\\temp\\tokens"
+  }
+}

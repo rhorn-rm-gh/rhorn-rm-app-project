@@ -1,0 +1,37 @@
+{
+  "testScenarios": [
+    {
+      "name": "Basic API Test",
+      "description": "Test basic API endpoint with authentication",
+      "endpoint": "/api/v1/users",
+      "method": "GET",
+      "expectedStatusCode": 200
+    },
+    {
+      "name": "Data Export Test",
+      "description": "Test data export functionality",
+      "endpoint": "/api/v1/export/data",
+      "method": "GET",
+      "expectedStatusCode": 200,
+      "expectedContentType": "application/json"
+    }
+  ],
+  "mockData": {
+    "sampleAPIResponse": {
+      "status": "success",
+      "data": [
+        {
+          "id": 1,
+          "name": "Sample User",
+          "email": "user@example.com",
+          "created": "2025-07-30T12:00:00Z"
+        }
+      ],
+      "pagination": {
+        "page": 1,
+        "totalPages": 1,
+        "totalItems": 1
+      }
+    }
+  }
+}

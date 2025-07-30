@@ -1,0 +1,292 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="APICallAndDownload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation/options" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:uwa="clr-namespace:UiPath.WebAPI.Activities;assembly=UiPath.WebAPI.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_APIEndpoint" Type="InArgument(x:String)" />
+    <x:Property Name="in_APIToken" Type="InArgument(x:String)" />
+    <x:Property Name="in_LocalPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1384,4248</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>APICallAndDownload_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Net.Http</x:String>
+      <x:String>UiPath.WebAPI.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.WebAPI.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="API Call and Data Export" sap:VirtualizedContainerService.HintSize="1314,4183" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Start API Process" sap:VirtualizedContainerService.HintSize="1272,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="Starting API call and data export process..." />
+    <Assign DisplayName="Initialize Variables" sap:VirtualizedContainerService.HintSize="1272,164" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[apiResponse]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">""</InArgument>
+      </Assign.Value>
+    </Assign>
+    <TryCatch DisplayName="Try API Call via Swagger UI" sap:VirtualizedContainerService.HintSize="1272,2168" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: API Call" sap:VirtualizedContainerService.HintSize="1238,2011" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" Version="V3">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="uix:NApplicationCard">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="uix:NApplicationCard" Name="AppContextAPI" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="API Browser Actions" sap:VirtualizedContainerService.HintSize="1204,1846" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Delay DisplayName="Wait for Swagger UI Ready" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1162,88" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click API Endpoint" sap:VirtualizedContainerService.HintSize="1162,218" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_1">
+                      <uix:NTarget.Selectors>
+                        <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                          <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="API Endpoint Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' class='opblock-summary-control' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' class='*opblock*' /&gt;" Guid="12345678-1234-1234-1234-345678901abc" ImageBase64="{x:Null}" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                            <uix:NSelector.Filters>
+                              <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                            </uix:NSelector.Filters>
+                          </uix:NSelector>
+                        </scg:List>
+                      </uix:NTarget.Selectors>
+                    </uix:NTarget>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <ui:Delay DisplayName="Wait for Expansion" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1162,88" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Try it out" sap:VirtualizedContainerService.HintSize="1162,218" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_2">
+                      <uix:NTarget.Selectors>
+                        <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                          <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Try it out' button" FullSelectorArgument="&lt;webctrl aaname='Try it out' tag='BUTTON' class='btn try-out__btn' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Try it out' tag='BUTTON' /&gt;" Guid="12345678-1234-1234-1234-345678901abd" ImageBase64="{x:Null}" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                            <uix:NSelector.Filters>
+                              <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                            </uix:NSelector.Filters>
+                          </uix:NSelector>
+                        </scg:List>
+                      </uix:NTarget.Selectors>
+                    </uix:NTarget>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <ui:Delay DisplayName="Wait for Try It Out" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1162,88" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Execute" sap:VirtualizedContainerService.HintSize="1162,218" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_3">
+                      <uix:NTarget.Selectors>
+                        <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                          <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Execute' button" FullSelectorArgument="&lt;webctrl aaname='Execute' tag='BUTTON' class='btn execute opblock-control__btn' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Execute' tag='BUTTON' /&gt;" Guid="12345678-1234-1234-1234-345678901abe" ImageBase64="{x:Null}" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                            <uix:NSelector.Filters>
+                              <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                            </uix:NSelector.Filters>
+                          </uix:NSelector>
+                        </scg:List>
+                      </uix:NTarget.Selectors>
+                    </uix:NTarget>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <ui:Delay DisplayName="Wait for API Response" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1162,88" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                <uix:NGetText DisplayName="Get Response Body" sap:VirtualizedContainerService.HintSize="1162,218" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" Text="[apiResponse]" Version="V3">
+                  <uix:NGetText.Target>
+                    <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_4">
+                      <uix:NTarget.Selectors>
+                        <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                          <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Text" FriendlyName="Response Body" FullSelectorArgument="&lt;webctrl class='response-col_description' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='*response*' tag='DIV' /&gt;" Guid="12345678-1234-1234-1234-345678901abf" ImageBase64="{x:Null}" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                            <uix:NSelector.Filters>
+                              <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                            </uix:NSelector.Filters>
+                          </uix:NSelector>
+                        </scg:List>
+                      </uix:NTarget.Selectors>
+                    </uix:NTarget>
+                  </uix:NGetText.Target>
+                </uix:NGetText>
+                <ui:LogMessage DisplayName="Log Response Retrieved" sap:VirtualizedContainerService.HintSize="1162,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="['API response retrieved, length: ' + apiResponse.Length.ToString]" />
+                <TryCatch DisplayName="Try Download Response" sap:VirtualizedContainerService.HintSize="1162,629" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch.Try>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Download" sap:VirtualizedContainerService.HintSize="1128,218" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_5">
+                          <uix:NTarget.Selectors>
+                            <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                              <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Download' button" FullSelectorArgument="&lt;webctrl aaname='Download' tag='BUTTON' class='download-contents' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Download' tag='BUTTON' /&gt;" Guid="12345678-1234-1234-1234-345678901ac0" ImageBase64="{x:Null}" ScopeIdentifier="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                                <uix:NSelector.Filters>
+                                  <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                                </uix:NSelector.Filters>
+                              </uix:NSelector>
+                            </scg:List>
+                          </uix:NTarget.Selectors>
+                        </uix:NTarget>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="x:Exception" sap:VirtualizedContainerService.HintSize="1128,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <ActivityAction x:TypeArguments="x:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <ui:LogMessage DisplayName="Log Download Error" sap:VirtualizedContainerService.HintSize="1086,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="['Download button not found or not clickable: ' + exception.Message]" />
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.Target>
+            <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="1204,22" sap2010:WorkflowViewState.IdRef="NTarget_6">
+              <uix:NTarget.Selectors>
+                <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                  <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Browser" FriendlyName="'Google Chrome' browser" FullSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" FuzzySelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" Guid="a1b2c3d4-5e6f-7a8b-9c0d-345678901abc" ImageBase64="{x:Null}" ScopeIdentifier="NTarget" SearchSteps="Selector, Fuzzy" Version="V1" Visibility="Interactive">
+                    <uix:NSelector.Filters>
+                      <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                    </uix:NSelector.Filters>
+                  </uix:NSelector>
+                </scg:List>
+              </uix:NTarget.Selectors>
+            </uix:NTarget>
+          </uix:NApplicationCard.Target>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="x:Exception" sap:VirtualizedContainerService.HintSize="1238,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <ActivityAction x:TypeArguments="x:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Browser Error" sap:VirtualizedContainerService.HintSize="1196,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="['Error during browser interaction: ' + exception.Message]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <TryCatch DisplayName="Try Direct API Call as Fallback" sap:VirtualizedContainerService.HintSize="1272,1576" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+      <TryCatch.Try>
+        <Sequence DisplayName="Direct HTTP API Call" sap:VirtualizedContainerService.HintSize="1238,1419" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Fallback API Call" sap:VirtualizedContainerService.HintSize="1196,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="Making direct HTTP API call as fallback..." />
+          <uwa:HttpClient BaseAddress="{x:Null}" DisplayName="HTTP Request" sap:VirtualizedContainerService.HintSize="1196,1248" sap2010:WorkflowViewState.IdRef="HttpClient_1" TimeoutMS="30000">
+            <uwa:HttpClient.Body>
+              <ActivityAction x:TypeArguments="uwa:IHttpClientAsyncCodeActivity">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="uwa:IHttpClientAsyncCodeActivity" Name="client" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="HTTP Request Sequence" sap:VirtualizedContainerService.HintSize="1162,1083" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uwa:HttpRequest AcceptFormat="Any" Body="{x:Null}" BodyFormat="Json" ContentType="application/json" DisplayName="GET API Data" EndPoint="[in_APIEndpoint]" Headers="[{{'Authorization', 'Bearer ' + in_APIToken}}]" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="HttpRequest_1" Method="GET" Result="[httpResponse]" ResultBodyFormat="Json" TimeoutMS="30000" />
+                  <If Condition="[httpResponse.StatusCode = System.Net.HttpStatusCode.OK]" DisplayName="If API Call Successful" sap:VirtualizedContainerService.HintSize="1120,785" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence DisplayName="Process Successful Response" sap:VirtualizedContainerService.HintSize="376,630" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Extract Response Body" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[apiResponse]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[httpResponse.Content]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log API Success" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="['API call successful. Response length: ' + apiResponse.Length.ToString]" />
+                        <Assign DisplayName="Create File Name" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">['API_Export_' + Now.ToString('yyyyMMdd_HHmmss') + '.json']</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:WriteTextFile DisplayName="Save API Response" FileName="[Path.Combine(in_LocalPath, fileName)]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[apiResponse]" />
+                        <ui:LogMessage DisplayName="Log File Saved" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="['API response saved to: ' + Path.Combine(in_LocalPath, fileName)]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:LogMessage DisplayName="Log API Error" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Error" Message="['API call failed with status: ' + httpResponse.StatusCode.ToString + ' - ' + httpResponse.ReasonPhrase]" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uwa:HttpClient.Body>
+          </uwa:HttpClient>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="x:Exception" sap:VirtualizedContainerService.HintSize="1238,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <ActivityAction x:TypeArguments="x:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log HTTP Error" sap:VirtualizedContainerService.HintSize="1196,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="['HTTP API call failed: ' + exception.Message]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <If Condition="[Not String.IsNullOrEmpty(apiResponse)]" DisplayName="If Response Available" sap:VirtualizedContainerService.HintSize="1272,216" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <ui:LogMessage DisplayName="Log Export Success" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="API data successfully exported and saved!" />
+      </If.Then>
+      <If.Else>
+        <ui:LogMessage DisplayName="Log Export Failure" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Error" Message="No API response data was retrieved!" />
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

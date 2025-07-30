@@ -1,0 +1,107 @@
+# UiPath specific
+.local/
+.objects/
+.tmh/
+.analytics/
+*.nupkg
+project.lock.json
+
+# Credentials and sensitive data
+Config.json
+**/Config.json
+*Token*.txt
+**/credentials.*
+**/*password*
+**/*secret*
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Log files
+*.log
+logs/
+Log*.txt
+
+# Visual Studio / Visual Studio Code
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Downloaded files that shouldn't be committed
+Downloads/
+APIExports/
+**/Downloads/**
+**/APIExports/**
+
+# Environment specific files
+.env
+.env.local
+.env.*.local
+
+# IDE specific files
+*.swp
+*.swo
+*~
+
+# Node modules (if any)
+node_modules/
+
+# Python (if any)
+__pycache__/
+*.py[cod]
+*$py.class

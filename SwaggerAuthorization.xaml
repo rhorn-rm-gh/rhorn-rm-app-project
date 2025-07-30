@@ -1,0 +1,183 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SwaggerAuthorization" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation/options" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_SwaggerURL" Type="InArgument(x:String)" />
+    <x:Property Name="in_APIToken" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1384,2788</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SwaggerAuthorization_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Swagger Authorization Process" sap:VirtualizedContainerService.HintSize="1314,2723" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Start Swagger Auth" sap:VirtualizedContainerService.HintSize="1272,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="Starting Swagger authorization process..." />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Swagger" sap:VirtualizedContainerService.HintSize="1272,2452" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" Version="V3">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="uix:NApplicationCard">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="uix:NApplicationCard" Name="AppContextSwagger" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Swagger Browser Actions" sap:VirtualizedContainerService.HintSize="1238,2287" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NNavigateTo DisplayName="Navigate to Swagger UI" sap:VirtualizedContainerService.HintSize="1196,134" sap2010:WorkflowViewState.IdRef="NNavigateTo_1" Url="[in_SwaggerURL]" />
+            <ui:Delay DisplayName="Wait for Swagger Load" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1196,88" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <TryCatch DisplayName="Try Authorize" sap:VirtualizedContainerService.HintSize="1196,1885" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch.Try>
+                <Sequence DisplayName="Authorization Sequence" sap:VirtualizedContainerService.HintSize="1162,1728" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Authorize Button" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_1">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Authorize' button" FullSelectorArgument="&lt;webctrl aaname='Authorize' tag='BUTTON' class='btn authorize unlocked' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Authorize' tag='BUTTON' /&gt;" Guid="12345678-1234-1234-1234-234567890abc" ImageBase64="{x:Null}" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                              <uix:NSelector.Filters>
+                                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                              </uix:NSelector.Filters>
+                            </uix:NSelector>
+                          </scg:List>
+                        </uix:NTarget.Selectors>
+                      </uix:NTarget>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:Delay DisplayName="Wait for Auth Dialog" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1120,88" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeTyping="True" DisplayName="Enter Bearer Token" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" Text="['Bearer ' + in_APIToken]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_2">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="InputText" FriendlyName="'Value' textbox for Bearer Token" FullSelectorArgument="&lt;webctrl tag='INPUT' class='form-control' aaname='Value' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' class='form-control' aaname='Value' /&gt;" Guid="12345678-1234-1234-1234-234567890abd" ImageBase64="{x:Null}" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                              <uix:NSelector.Filters>
+                                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                              </uix:NSelector.Filters>
+                            </uix:NSelector>
+                          </scg:List>
+                        </uix:NTarget.Selectors>
+                      </uix:NTarget>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Authorize in Dialog" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_3">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Authorize' button in dialog" FullSelectorArgument="&lt;webctrl aaname='Authorize' tag='BUTTON' class='btn modal-btn auth authorize button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Authorize' tag='BUTTON' class='*authorize*' /&gt;" Guid="12345678-1234-1234-1234-234567890abe" ImageBase64="{x:Null}" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                              <uix:NSelector.Filters>
+                                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                              </uix:NSelector.Filters>
+                            </uix:NSelector>
+                          </scg:List>
+                        </uix:NTarget.Selectors>
+                      </uix:NTarget>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:Delay DisplayName="Wait for Authorization" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1120,88" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Close Auth Dialog" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_4">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Close' button" FullSelectorArgument="&lt;webctrl aaname='Close' tag='BUTTON' class='btn modal-btn auth btn-done button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Close' tag='BUTTON' /&gt;" Guid="12345678-1234-1234-1234-234567890abf" ImageBase64="{x:Null}" ScopeIdentifier="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                              <uix:NSelector.Filters>
+                                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                              </uix:NSelector.Filters>
+                            </uix:NSelector>
+                          </scg:List>
+                        </uix:NTarget.Selectors>
+                      </uix:NTarget>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Auth Success" sap:VirtualizedContainerService.HintSize="1120,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="Successfully authorized in Swagger UI" />
+                  <If Condition="[System.IO.File.Exists(Environment.CurrentDirectory + '\SwaggerAuthToken.txt')]" DisplayName="If Token File Exists" sap:VirtualizedContainerService.HintSize="1120,686" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <ui:WriteTextFile DisplayName="Update Token File" FileName="[Environment.CurrentDirectory + '\SwaggerAuthToken.txt']" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[in_APIToken]" />
+                    </If.Then>
+                    <If.Else>
+                      <ui:WriteTextFile DisplayName="Create Token File" FileName="[Environment.CurrentDirectory + '\SwaggerAuthToken.txt']" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[in_APIToken]" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="x:Exception" sap:VirtualizedContainerService.HintSize="1162,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <ActivityAction x:TypeArguments="x:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <ui:LogMessage DisplayName="Log Auth Error" sap:VirtualizedContainerService.HintSize="1120,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="['Error during Swagger authorization: ' + exception.Message]" />
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.Target>
+        <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="1238,22" sap2010:WorkflowViewState.IdRef="NTarget_5">
+          <uix:NTarget.Selectors>
+            <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+              <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Browser" FriendlyName="'Google Chrome' browser" FullSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" FuzzySelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" Guid="f9c8b7d5-3e6f-4b5a-8d2e-234567890abc" ImageBase64="{x:Null}" ScopeIdentifier="NTarget" SearchSteps="Selector, Fuzzy" Version="V1" Visibility="Interactive">
+                <uix:NSelector.Filters>
+                  <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                </uix:NSelector.Filters>
+              </uix:NSelector>
+            </scg:List>
+          </uix:NTarget.Selectors>
+        </uix:NTarget>
+      </uix:NApplicationCard.Target>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

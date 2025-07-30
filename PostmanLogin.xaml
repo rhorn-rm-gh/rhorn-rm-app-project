@@ -1,0 +1,225 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PostmanLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation/options" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Username" Type="InArgument(x:String)" />
+    <x:Property Name="in_Password" Type="InArgument(x:String)" />
+    <x:Property Name="out_APIToken" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1384,3048</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PostmanLogin_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Postman Login and Token Refresh" sap:VirtualizedContainerService.HintSize="1314,2983" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="1272,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="Starting Postman login process..." />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Postman" sap:VirtualizedContainerService.HintSize="1272,2712" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Version="V3">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="uix:NApplicationCard">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="uix:NApplicationCard" Name="AppContextPostman" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Postman Browser Actions" sap:VirtualizedContainerService.HintSize="1238,2547" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NNavigateTo DisplayName="Navigate to Postman" sap:VirtualizedContainerService.HintSize="1196,134" sap2010:WorkflowViewState.IdRef="NNavigateTo_1" Url="https://identity.getpostman.com/login" />
+            <ui:Delay DisplayName="Wait for Page Load" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1196,88" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeTyping="True" DisplayName="Enter Username" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1196,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Text="[in_Username]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_1">
+                  <uix:NTarget.Selectors>
+                    <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                      <uix:NSelector BrowserURL="https://identity.getpostman.com/login" DesktopRectangle="{x:Null}" ElementType="InputEmail" FriendlyName="'Username or email *' textbox" FullSelectorArgument="&lt;webctrl id='username' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='username' tag='INPUT' type='' class='' aaname='' /&gt;" Guid="12345678-1234-1234-1234-123456789abc" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                        <uix:NSelector.Filters>
+                          <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                        </uix:NSelector.Filters>
+                      </uix:NSelector>
+                    </scg:List>
+                  </uix:NTarget.Selectors>
+                </uix:NTarget>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeTyping="True" DisplayName="Enter Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1196,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Text="[in_Password]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_2">
+                  <uix:NTarget.Selectors>
+                    <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                      <uix:NSelector BrowserURL="https://identity.getpostman.com/login" DesktopRectangle="{x:Null}" ElementType="InputPassword" FriendlyName="'Password *' textbox" FullSelectorArgument="&lt;webctrl id='password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='password' tag='INPUT' type='' class='' aaname='' /&gt;" Guid="12345678-1234-1234-1234-123456789abd" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                        <uix:NSelector.Filters>
+                          <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                        </uix:NSelector.Filters>
+                      </uix:NSelector>
+                    </scg:List>
+                  </uix:NTarget.Selectors>
+                </uix:NTarget>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Sign In" sap:VirtualizedContainerService.HintSize="1196,218" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Version="V3">
+              <uix:NClick.Target>
+                <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_3">
+                  <uix:NTarget.Selectors>
+                    <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                      <uix:NSelector BrowserURL="https://identity.getpostman.com/login" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Sign In' button" FullSelectorArgument="&lt;webctrl aaname='Sign In' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sign In' tag='BUTTON' type='' class='' /&gt;" Guid="12345678-1234-1234-1234-123456789abe" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                        <uix:NSelector.Filters>
+                          <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                        </uix:NSelector.Filters>
+                      </uix:NSelector>
+                    </scg:List>
+                  </uix:NTarget.Selectors>
+                </uix:NTarget>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:Delay DisplayName="Wait for Login" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1196,88" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <uix:NNavigateTo DisplayName="Navigate to API Keys" sap:VirtualizedContainerService.HintSize="1196,134" sap2010:WorkflowViewState.IdRef="NNavigateTo_2" Url="https://web.postman.co/settings/me/api-keys" />
+            <ui:Delay DisplayName="Wait for API Keys Page" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1196,88" sap2010:WorkflowViewState.IdRef="Delay_3" />
+            <TryCatch DisplayName="Try to Generate New API Key" sap:VirtualizedContainerService.HintSize="1196,889" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch.Try>
+                <Sequence DisplayName="Generate API Key Sequence" sap:VirtualizedContainerService.HintSize="1162,732" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Generate API Key" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_4">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="https://web.postman.co/settings/me/api-keys" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Generate API Key' button" FullSelectorArgument="&lt;webctrl aaname='Generate API Key' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Generate API Key' tag='BUTTON' type='' class='' /&gt;" Guid="12345678-1234-1234-1234-123456789abf" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                              <uix:NSelector.Filters>
+                                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                              </uix:NSelector.Filters>
+                            </uix:NSelector>
+                          </scg:List>
+                        </uix:NTarget.Selectors>
+                      </uix:NTarget>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:Delay DisplayName="Wait for Dialog" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1120,88" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeTyping="True" DisplayName="Enter API Key Name" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Text="['AutomationKey_' + Now.ToString('yyyyMMdd_HHmmss')]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_5">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="https://web.postman.co/settings/me/api-keys" DesktopRectangle="{x:Null}" ElementType="InputText" FriendlyName="'API key name' textbox" FullSelectorArgument="&lt;webctrl id='key-name' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='key-name' tag='INPUT' type='' class='' aaname='' /&gt;" Guid="12345678-1234-1234-1234-123456789ac0" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                              <uix:NSelector.Filters>
+                                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                              </uix:NSelector.Filters>
+                            </uix:NSelector>
+                          </scg:List>
+                        </uix:NTarget.Selectors>
+                      </uix:NTarget>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Generate" sap:VirtualizedContainerService.HintSize="1120,218" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_6">
+                        <uix:NTarget.Selectors>
+                          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                            <uix:NSelector BrowserURL="https://web.postman.co/settings/me/api-keys" DesktopRectangle="{x:Null}" ElementType="Button" FriendlyName="'Generate' button" FullSelectorArgument="&lt;webctrl aaname='Generate' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Generate' tag='BUTTON' type='' class='' /&gt;" Guid="12345678-1234-1234-1234-123456789ac1" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                            <uix:NSelector.Filters>
+                              <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                            </uix:NSelector.Filters>
+                          </uix:NSelector>
+                        </scg:List>
+                      </uix:NTarget.Selectors>
+                    </uix:NTarget>
+                  </uix:NClick.Target>
+                </uix:NClick>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="x:Exception" sap:VirtualizedContainerService.HintSize="1162,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <ActivityAction x:TypeArguments="x:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <ui:LogMessage DisplayName="Log API Key Error" sap:VirtualizedContainerService.HintSize="1120,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="['Could not generate new API key, will try to copy existing one: ' + exception.Message]" />
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <ui:Delay DisplayName="Wait for Token Generation" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1196,88" sap2010:WorkflowViewState.IdRef="Delay_5" />
+          <uix:NGetText DisplayName="Get Generated Token" sap:VirtualizedContainerService.HintSize="1196,218" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" Text="[out_APIToken]" Version="V3">
+            <uix:NGetText.Target>
+              <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="522,196" sap2010:WorkflowViewState.IdRef="NTarget_7">
+                <uix:NTarget.Selectors>
+                  <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+                    <uix:NSelector BrowserURL="https://web.postman.co/settings/me/api-keys" DesktopRectangle="{x:Null}" ElementType="Text" FriendlyName="API Token Value" FullSelectorArgument="&lt;webctrl class='token-value' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='token-value' tag='SPAN' /&gt;" Guid="12345678-1234-1234-1234-123456789ac2" ImageBase64="{x:Null}" ScopeIdentifier="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                      <uix:NSelector.Filters>
+                        <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+                      </uix:NSelector.Filters>
+                    </uix:NSelector>
+                  </scg:List>
+                </uix:NTarget.Selectors>
+              </uix:NTarget>
+            </uix:NGetText.Target>
+          </uix:NGetText>
+          <ui:LogMessage DisplayName="Log Token Captured" sap:VirtualizedContainerService.HintSize="1196,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="['Successfully captured API token: ' + Left(out_APIToken, 10) + '...']" />
+        </Sequence>
+      </ActivityAction>
+    </uix:NApplicationCard.Body>
+    <uix:NApplicationCard.Target>
+      <uix:NTarget InformativeScreenshot="{x:Null}" ReproducibleScreenshot="{x:Null}" sap:VirtualizedContainerService.HintSize="1238,22" sap2010:WorkflowViewState.IdRef="NTarget_8">
+        <uix:NTarget.Selectors>
+          <scg:List x:TypeArguments="uix:NSelector" Capacity="1">
+            <uix:NSelector BrowserURL="{x:Null}" DesktopRectangle="{x:Null}" ElementType="Browser" FriendlyName="'Google Chrome' browser" FullSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" FuzzySelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" Guid="e8b7a6c4-2f5d-4a3b-9c1e-123456789abc" ImageBase64="{x:Null}" ScopeIdentifier="NTarget" SearchSteps="Selector, Fuzzy" Version="V1" Visibility="Interactive">
+              <uix:NSelector.Filters>
+                <scg:List x:TypeArguments="uix:NFilter" Capacity="0" />
+              </uix:NSelector.Filters>
+            </uix:NSelector>
+          </scg:List>
+        </uix:NTarget.Selectors>
+      </uix:NTarget>
+    </uix:NApplicationCard.Target>
+  </uix:NApplicationCard>
+  <ui:WriteTextFile DisplayName="Save Token to File" FileName="[Environment.CurrentDirectory + '\APIToken.txt']" sap:VirtualizedContainerService.HintSize="1272,88" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[out_APIToken]" />
+</Sequence>
+</Activity>
