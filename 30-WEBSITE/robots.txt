@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: /sitemap.xml
+
+# Block access to development files
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.md$
+
+# Allow access to main content
+Allow: /images/
+Allow: /
+
+# Crawl delay (optional)
+Crawl-delay: 1
