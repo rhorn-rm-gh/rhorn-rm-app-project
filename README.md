@@ -1,3 +1,5 @@
+# AI App Challenge 2025
+
 # [Preview the site](https://rhorn-rm-gh.github.io/rhorn-rm-app-project/)
 
 ![image info](preview-rhorn-rm.jpg)
