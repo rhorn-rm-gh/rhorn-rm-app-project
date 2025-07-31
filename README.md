@@ -1,6 +1,6 @@
 # [Preview the site](https://rhorn-rm-gh.github.io/rhorn-rm-app-project/)
 
-![image info](../assets/images/bike-palace.png)
+![image info](preview-rhorn-rm.jpg)
 
 # App Projects 🚀
 
