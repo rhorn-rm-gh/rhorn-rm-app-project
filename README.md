@@ -1,4 +1,4 @@
-# AI App Challenge 2025
+# RH-AI App Challenge 2025
 
 # [Preview the site](https://rhorn-rm-gh.github.io/rhorn-rm-app-project/)
 
