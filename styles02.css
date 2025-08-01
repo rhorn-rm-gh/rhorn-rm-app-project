@@ -271,6 +271,29 @@ section {
   line-height: 1.7;
 }
 
+/* Loading and Error States */
+.loading-state,
+.error-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+.loading-state i,
+.error-state i {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.loading-state i {
+  color: var(--secondary-color);
+}
+
+.error-state i {
+  color: #e74c3c;
+}
+
 /* Amenities Grid */
 .amenities-grid {
   display: grid;
@@ -405,6 +428,31 @@ section h3::after {
 .single-shop .card-title {
   color: var(--primary-color);
   font-size: 1.4rem;
+}
+
+.card-img-container img {
+  transition: var(--transition);
+}
+
+.card-img-container img:hover {
+  transform: scale(1.05);
+}
+
+.card-text-sqft {
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Contact links styling */
+.contact-item a:hover {
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.footer-section a:hover {
+  opacity: 0.8;
+  transition: var(--transition);
 }
 
 /* Contact Form */

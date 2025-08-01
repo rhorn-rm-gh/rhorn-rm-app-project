@@ -1,0 +1,14 @@
+{
+  "property": {
+    "name": "ARIUM at RMR ITAppChallenge",
+    "address": "123 Main Street",
+    "city": "Newton",
+    "state": "MA",
+    "zipcode": "02458",
+    "description": "<p><strong>Note:</strong> This is a demonstration property for training purposes only.</p><p>Discover modern living at ARIUM at RMR ITAppChallenge, featuring thoughtfully designed 1 and 2-bedroom apartments with premium amenities. Our community offers convenient access to local attractions, shopping, dining, and entertainment options that connect you to the heart of the area.</p><p>Enjoy resort-style amenities including our stunning pool area, state-of-the-art fitness center, and beautifully landscaped outdoor spaces perfect for relaxation and recreation.</p>",
+    "email": "testpmrmr@gmail.com",
+    "phone": "(555) 123-4567",
+    "latitude": 33.84715,
+    "longitude": -84.37077
+  }
+}
