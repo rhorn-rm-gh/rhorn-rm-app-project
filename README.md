@@ -1,6 +1,6 @@
 # AI App Challenge 2025 (rh)
 
-# [Preview the site](https://rhorn-rm-gh.github.io/rhorn-rm-app-project/)
+# <a href="https://rhorn-rm-gh.github.io/rhorn-rm-app-project/" target="_blank">Preview the site</a>
 
 ![image info](preview-rhorn-rm.jpg)
 
