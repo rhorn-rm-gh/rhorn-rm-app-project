@@ -1,0 +1,32 @@
+{
+  "properties": [
+    {
+      "apartmentSettings": {
+        "revenueManagementEnabled": false,
+        "availabilityDaysFromUserMoveIn": 30,
+        "daysAfterUnitAvailableMoveInPossibleStart": 3,
+        "daysAfterUnitAvailableMoveInPossibleEnd": 30,
+        "daysFromCurrentDateMoveInRestrictedForAvailableUnits": 0,
+        "monthsAvailabilityRestrictedTo": 3,
+        "percentRentOverMaxToIncludeApartmentSearch": 15,
+        "maxApartmentsDisplayed": 5
+      },
+      "name": "zTest ARIUM Kissimmee Lakes",
+      "address": "3503 Bonaire Blvd",
+      "city": "Kissimmee",
+      "state": "FL",
+      "zipcode": "34741",
+      "url": "http://ztest-arium-kissimmee-lakes.rentcafewebsite.com",
+      "description": "**Please do not contact. This is a test property for training purposes**Experience serene lakeside living at ARIUM Kissimmee Lakes, featuring 1 and 2-bedroom apartments with elevated amenities. Located outside of Kissimmee, enjoy direct access to Orlando's theme parks, employment centers, and all the area's offerings. Easy access to nearby shopping, dining, and entertainment options at The Loop Kissimmee, Plaza Del Sol, and Vine Street Square puts you at the heart of local happenings. Located off Route 192 and Route 17, our community provides excellent connectivity to Orlando's major employment hubs. Maximize your outdoor time by soaking up the sun at our resort-style pool, hosting friends and family at our upgraded outdoor kitchen, or playing fetch with your furry friend in our dog park. Spend the day entertaining kids outside at our upgraded playground or bike along the Kissimmee Trail or Shingle Creek Regional Park's trail system - minutes from our community.",
+      "email": "testpmrmr@gmail.com",
+      "phone": "(111) 111-1111",
+      "latitude": 28.310092,
+      "longitude": -81.439358,
+      "propertyCode": "p1659639",
+      "voyagerPropertyCode": "0922",
+      "propertyId": 1691496
+    }
+  ],
+  "errorCode": 200,
+  "errorMessage": ""
+}
