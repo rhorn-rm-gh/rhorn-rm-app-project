@@ -1,6 +1,6 @@
 ## 📄 Executive Summary
 
-[📄 Preview Executive Summary](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main/RMR_Executive_Summary-ITAppChallenge2025_rh.pdf)
+# [📄 Preview Executive Summary](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main/RMR_Executive_Summary-ITAppChallenge2025_rh.pdf)
 
 ## Project List 📜
 # 10-API-UIPATH - [📄 Preview UiPath Postman-Swagger API Automation](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main/10-API-UIPATH/README-10.md)
