@@ -2,6 +2,68 @@
 
 ## _Note: Unfortunately, I did not have the opportunity to experiment with or pilot this automation. These products are new to me, and I’m enthusiastic about continuing to explore and work with them._
 
+---
+
+Based on your goal—automating the flow from API data files to a customer data platform and then transforming them into JSON for website consumption—here’s a recommended **app stack** that balances automation, scalability, and ease of integration:
+
+---
+
+## 🧱 Recommended App Stack for Automated ELT + Web Integration
+
+### 1. **Automation & Data Extraction: UiPath**
+- **Role:** Automates file retrieval from network folders and API calls
+- **Key Features:**
+  - HTTP Request Wizard for REST APIs
+  - File system automation
+  - JSON deserialization and transformation
+- **Why:** UiPath excels at rule-based automation and can easily handle API data extraction and file manipulation
+
+---
+
+### 2. **Customer Data Platform (CDP): Segment or Snowflake**
+- **Role:** Central repository for customer data ingestion and transformation
+- **Options:**
+  - **Segment**: Ideal for real-time customer data routing and tracking
+  - **Snowflake**: Scalable cloud data warehouse with ELT capabilities
+- **Why:** These platforms support structured ingestion and transformation pipelines, and integrate well with automation tools
+
+---
+
+### 3. **Data Transformation: dbt (Data Build Tool)**
+- **Role:** Transforms raw data into clean, structured JSON
+- **Key Features:**
+  - SQL-based transformation logic
+  - Version control and modular pipelines
+- **Why:** dbt works well with Snowflake and other warehouses to produce clean, web-ready data formats
+
+---
+
+### 4. **Web Consumption Layer: Headless CMS or Static Site Generator**
+- **Options:**
+  - **Strapi** or **Contentful** (Headless CMS): Serve JSON via APIs to frontend
+  - **Next.js** or **Gatsby** (Static Site Generators): Consume JSON and render dynamic content
+- **Why:** These tools allow seamless integration of JSON data into modern, performant websites
+
+---
+
+## 🔄 Workflow Summary
+
+```mermaid
+graph TD
+    A[UiPath: Extract API Data] --> B[CDP: Segment/Snowflake]
+    B --> C[dbt: Transform to JSON]
+    C --> D[CMS/Frontend: Strapi/Next.js]
+```
+
+---
+
+## ✅ Benefits of This Stack
+- **Automation-first**: UiPath handles repetitive tasks and API interactions
+- **Scalable data infrastructure**: CDP + dbt ensures clean, structured data
+- **Modern web integration**: JSON flows directly into dynamic web components
+
+---
+
 Here’s a detailed **step-by-step project plan timeline** to guide your implementation from start to finish. This timeline assumes a **6-week schedule**, but it can be adjusted based on team size, complexity, and available resources.
 
 ---
