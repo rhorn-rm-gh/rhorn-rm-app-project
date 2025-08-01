@@ -1,6 +1,4 @@
-# [Preview the site](https://rhorn-rm-gh.github.io/rhorn-rm-app-project/)
-
-![image info](preview-rhorn-rm.jpg)
+## EXECUTIVE SUMMARY
 
 # App Projects 🚀
 
@@ -18,6 +16,13 @@ Crafted with simplicity in mind, each project is easy to follow—perfect for le
 🔥 Built with HTML, CSS, and JavaScript, these projects highlight what's possible when creativity meets code.
 
 ## Project List 📜
+# 10-API-UIPATH 
+
+# 20-ELT-Db 
+
+# 30-WEBSITE - [Preview the site](https://rhorn-rm-gh.github.io/rhorn-rm-app-project/)
+
+![image info](preview-rhorn-rm.jpg)
 
 ### Contact Us
 
