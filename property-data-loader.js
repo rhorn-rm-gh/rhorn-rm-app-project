@@ -102,7 +102,7 @@ class PropertyDataLoader {
     col.innerHTML = `
       <div class="card p-3 border-2 shadow-lg single-shop">
         <div class="card-img-container" style="text-align: center; margin-bottom: 15px;">
-          <img src="images/${plan.floorplanImageName}" alt="${plan.floorplanName} floor plan" 
+          <img src="${plan.floorplanImageName}" alt="${plan.floorplanName} floor plan" 
                style="max-width: 100%; height: 150px; object-fit: cover; border-radius: 8px;"
                onerror="this.style.display='none';">
         </div>
