@@ -1,3 +1,5 @@
+[📄 Return to main branch](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main)
+
 # UiPath Postman-Swagger API Automation
 
 This UiPath project automates the complete workflow of:
@@ -199,3 +201,6 @@ Run the automation in debug mode to:
 **Version**: 1.0.0
 **Last Updated**: July 30, 2025
 **Dependencies**: UiPath Studio 2022.10+, Chrome Browser, Postman Account
+
+---
+[📄 Return to main branch](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main)
