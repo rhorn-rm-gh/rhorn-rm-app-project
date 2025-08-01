@@ -1,4 +1,7 @@
-## EXECUTIVE SUMMARY
+## 📄 Executive Summary
+
+[📄 Preview via Google Docs Viewer](https://docs.google.com/viewer?url=https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/4221fc33bb89c5e3b6ea325c98e5bd6a75de8508/RMR%20Executive%20Summary%20-%20IT%20AppChallenge%202025_rh.pdf&embedded=true)
+
 
 # App Projects 🚀
 
