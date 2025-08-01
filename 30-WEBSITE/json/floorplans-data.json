@@ -1,0 +1,34 @@
+{
+  "floorplans": [
+    {
+      "floorplanImageName": "flrplan1.jpg",
+      "floorplanName": "Aruba - A1",
+      "beds": 1,
+      "baths": 1,
+      "minimumSQFT": 500,
+      "minimumRent": 1386,
+      "maximumRent": 1598,
+      "availabilityURL": "https://ztest-arium-kissimmee-lakes-rentcafewebsite.securecafe.com/onlineleasing/ztest-arium-kissimmee-lakes/oleapplication.aspx?stepname=Apartments&myOlePropertyId=1691496&floorPlans=4899750"
+    },
+    {
+      "floorplanImageName": "flrplan2.jpg",
+      "floorplanName": "Trinidad B1",
+      "beds": 2,
+      "baths": 2,
+      "minimumSQFT": 998,
+      "minimumRent": 1522,
+      "maximumRent": 1814,
+      "availabilityURL": "https://ztest-arium-kissimmee-lakes-rentcafewebsite.securecafe.com/onlineleasing/ztest-arium-kissimmee-lakes/oleapplication.aspx?stepname=Apartments&myOlePropertyId=1691496&floorPlans=4899753"
+    },
+    {
+      "floorplanImageName": "flrplan3.jpg",
+      "floorplanName": "TEST - B2",
+      "beds": 2,
+      "baths": 2,
+      "minimumSQFT": 1010,
+      "minimumRent": 1548,
+      "maximumRent": 1860,
+      "availabilityURL": "https://ztest-arium-kissimmee-lakes-rentcafewebsite.securecafe.com/onlineleasing/ztest-arium-kissimmee-lakes/oleapplication.aspx?stepname=Apartments&myOlePropertyId=1691496&floorPlans=5793664"
+    }
+  ]
+}
