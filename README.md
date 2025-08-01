@@ -1,8 +1,8 @@
 ## 📄 Executive Summary
 
-[📄 Preview via Google Docs Viewer](https://docs.google.com/viewer?url=https://docs.google.com/viewer?url=https://raw.githubusercontent.com/rhorn-rm-gh/rhorn-rm-app-project/main/docs/RMR_Executive_Summary-ITAppChallenge2025_rh.pdf&embedded=true)
+[📄 Preview via Google Docs Viewer](https://docs.google.com/viewer?url=https://docs.google.com/viewer?url=https://raw.githubusercontent.com/rhorn-rm-gh/rhorn-rm-app-project/main/RMR_Executive_Summary-ITAppChallenge2025_rh.pdf&embedded=true)
 
-[📄 Preview Executive Summary](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main/docs/RMR_Executive_Summary-ITAppChallenge2025_rh.pdf)
+[📄 Preview Executive Summary](https://github.com/rhorn-rm-gh/rhorn-rm-app-project/blob/main/RMR_Executive_Summary-ITAppChallenge2025_rh.pdf)
 
 # App Projects 🚀
 
