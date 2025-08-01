@@ -17,8 +17,8 @@ class PropertyDataLoader {
 
   async loadAllData() {
     const [propertyResponse, floorplansResponse] = await Promise.all([
-      fetch('json/property-data.json'),
-      fetch('json/floorplans-data.json')
+      fetch('property-data.json'),
+      fetch('floorplans-data.json')
     ]);
 
     if (!propertyResponse.ok || !floorplansResponse.ok) {
